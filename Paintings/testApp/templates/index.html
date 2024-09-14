@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block exhibitions %}
+  <div class="row row-cols-md-3 g-4" style="width: 80%; margin: auto;">
+    {% for exhibition in exhibitions %}
+    <div class="col">
+
+        {% for painting in paintings %}
+            {% if painting.exhibition == exhibition %}
+                <img src="{{ MEDIA_URL }}{{ painting.image.url }}" class="card-img-top" alt="...">
+            {% endif %}
+          {% endfor %}
+        <h1 class="card-title">{{ exhibition.title }}</h1>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
